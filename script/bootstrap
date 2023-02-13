@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+set -eux
+
+# Install dependencies
+yarn install
+
+# Initialize db for development
+yarn prisma migrate dev
+yarn prisma migrate reset 
+
+# Create some data into dev db for development
+node -r @swc-node/register prisma/seed.ts
