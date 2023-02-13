@@ -2,7 +2,7 @@
 
 set -eux
 
-# Install dependencies
+cp .env.sample .env
 yarn install
 
 # Initialize db for development
