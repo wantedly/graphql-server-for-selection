@@ -83,6 +83,7 @@ export interface NexusGenFieldTypes {
   }
   Query: { // field return type
     books: Array<NexusGenRootTypes['Book'] | null> | null; // [Book]
+    project: NexusGenRootTypes['Project'] | null; // Project
     projects: Array<NexusGenRootTypes['Project'] | null> | null; // [Project]
   }
   Staffing: { // field return type
@@ -114,6 +115,7 @@ export interface NexusGenFieldTypeNames {
   }
   Query: { // field return type name
     books: 'Book'
+    project: 'Project'
     projects: 'Project'
   }
   Staffing: { // field return type name
@@ -128,6 +130,11 @@ export interface NexusGenFieldTypeNames {
 }
 
 export interface NexusGenArgTypes {
+  Query: {
+    project: { // args
+      id: number; // Int!
+    }
+  }
 }
 
 export interface NexusGenAbstractTypeMembers {

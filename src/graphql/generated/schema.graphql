@@ -21,6 +21,7 @@ type Project {
 
 type Query {
   books: [Book]
+  project(id: Int!): Project
   projects: [Project]
 }
 
