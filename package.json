@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "@apollo/server": "^4.3.3",
+    "@faker-js/faker": "^7.6.0",
     "@prisma/client": "4.10.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
