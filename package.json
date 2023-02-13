@@ -19,7 +19,7 @@
     "@swc/core": "^1.3.35",
     "@types/morgan": "^1.9.4",
     "@types/node": "^18.13.0",
-    "prisma": "^4.10.1",
+    "prisma": "4.10.1",
     "typescript": "^4.9.5"
   },
   "scripts": {
@@ -27,5 +27,6 @@
   },
   "prisma": {
     "seed": "node -r @swc-node/register prisma/seed.ts"
-  }
+  },
+  "packageManager": "yarn@3.4.1"
 }

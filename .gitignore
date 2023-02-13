@@ -145,3 +145,7 @@ dist
 
 *.db
 *.db-journal
+
+.yarn/cache
+.yarn/install-state.gz
+!.yarn/releases/*
