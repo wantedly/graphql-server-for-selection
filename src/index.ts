@@ -35,6 +35,6 @@ apolloServer.start().then(() => {
     expressMiddleware(apolloServer, { context: createContext })
   );
   app.listen(PORT, HOST, () => {
-    console.log(`Server is running 🚀 ${HOST}:${PORT}`);
+    console.log(`Server is running 🚀 ${HOST}:${PORT}/graphql`);
   });
 });

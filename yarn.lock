@@ -635,6 +635,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/cors@npm:^2.8.13":
+  version: 2.8.13
+  resolution: "@types/cors@npm:2.8.13"
+  dependencies:
+    "@types/node": "*"
+  checksum: 7ef197ea19d2e5bf1313b8416baa6f3fd6dd887fd70191da1f804f557395357dafd8bc8bed0ac60686923406489262a7c8a525b55748f7b2b8afa686700de907
+  languageName: node
+  linkType: hard
+
 "@types/express-serve-static-core@npm:^4.17.30, @types/express-serve-static-core@npm:^4.17.33":
   version: 4.17.33
   resolution: "@types/express-serve-static-core@npm:4.17.33"
@@ -1475,6 +1484,7 @@ __metadata:
     "@swc-node/register": ^1.6.1
     "@swc/cli": ^0.1.61
     "@swc/core": ^1.3.35
+    "@types/cors": ^2.8.13
     "@types/morgan": ^1.9.4
     "@types/node": ^18.13.0
     dotenv: ^16.0.3
