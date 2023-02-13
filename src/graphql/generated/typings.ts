@@ -33,7 +33,26 @@ export interface NexusGenObjects {
     id: number; // Int!
     title: string; // String!
   }
+  Project: { // root type
+    coverImageUrl: string; // String!
+    description: string; // String!
+    howDescription: string; // String!
+    id: number; // Int!
+    staffings: Array<NexusGenRootTypes['Staffing'] | null>; // [Staffing]!
+    title: string; // String!
+    whatDescription: string; // String!
+    whyDescription: string; // String!
+  }
   Query: {};
+  Staffing: { // root type
+    id: number; // Int!
+    user: NexusGenRootTypes['User']; // User!
+    userId: number; // Int!
+  }
+  User: { // root type
+    id: number; // Int!
+    name: string; // String!
+  }
 }
 
 export interface NexusGenInterfaces {
@@ -52,8 +71,29 @@ export interface NexusGenFieldTypes {
     id: number; // Int!
     title: string; // String!
   }
+  Project: { // field return type
+    coverImageUrl: string; // String!
+    description: string; // String!
+    howDescription: string; // String!
+    id: number; // Int!
+    staffings: Array<NexusGenRootTypes['Staffing'] | null>; // [Staffing]!
+    title: string; // String!
+    whatDescription: string; // String!
+    whyDescription: string; // String!
+  }
   Query: { // field return type
     books: Array<NexusGenRootTypes['Book'] | null> | null; // [Book]
+    project: NexusGenRootTypes['Project'] | null; // Project
+    projects: Array<NexusGenRootTypes['Project'] | null> | null; // [Project]
+  }
+  Staffing: { // field return type
+    id: number; // Int!
+    user: NexusGenRootTypes['User']; // User!
+    userId: number; // Int!
+  }
+  User: { // field return type
+    id: number; // Int!
+    name: string; // String!
   }
 }
 
@@ -63,12 +103,38 @@ export interface NexusGenFieldTypeNames {
     id: 'Int'
     title: 'String'
   }
+  Project: { // field return type name
+    coverImageUrl: 'String'
+    description: 'String'
+    howDescription: 'String'
+    id: 'Int'
+    staffings: 'Staffing'
+    title: 'String'
+    whatDescription: 'String'
+    whyDescription: 'String'
+  }
   Query: { // field return type name
     books: 'Book'
+    project: 'Project'
+    projects: 'Project'
+  }
+  Staffing: { // field return type name
+    id: 'Int'
+    user: 'User'
+    userId: 'Int'
+  }
+  User: { // field return type name
+    id: 'Int'
+    name: 'String'
   }
 }
 
 export interface NexusGenArgTypes {
+  Query: {
+    project: { // args
+      id: number; // Int!
+    }
+  }
 }
 
 export interface NexusGenAbstractTypeMembers {

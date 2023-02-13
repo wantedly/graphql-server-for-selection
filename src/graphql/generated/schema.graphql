@@ -8,6 +8,30 @@ type Book {
   title: String!
 }
 
+type Project {
+  coverImageUrl: String!
+  description: String!
+  howDescription: String!
+  id: Int!
+  staffings: [Staffing]!
+  title: String!
+  whatDescription: String!
+  whyDescription: String!
+}
+
 type Query {
   books: [Book]
+  project(id: Int!): Project
+  projects: [Project]
+}
+
+type Staffing {
+  id: Int!
+  user: User!
+  userId: Int!
+}
+
+type User {
+  id: Int!
+  name: String!
 }
