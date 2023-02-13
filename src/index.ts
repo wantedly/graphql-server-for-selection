@@ -5,39 +5,15 @@ import dotenv from "dotenv";
 import express from "express";
 import morgan from "morgan";
 
+import { schema } from "./graphql/schema";
+
 dotenv.config();
 
 const HOST = process.env.HOST || "localhost";
 const PORT = Number(process.env.PORT) || 4000;
 
-const typeDefs = `#graphql
-  type Book {
-    title: String
-    author: String
-  }
-  type Query {
-    books: [Book]
-  }
-`;
-
-const books = [
-  {
-    title: 'The Awakening',
-    author: 'Kate Chopin',
-  },
-  {
-    title: 'City of Glass',
-    author: 'Paul Auster',
-  },
-];
-
 const apolloServer = new ApolloServer<{}>({
-  typeDefs,
-  resolvers: {
-    Query: {
-      books: () => books,
-    },
-  },
+  schema,
 });
 
 const app = express();
@@ -52,11 +28,7 @@ const corsOptions: cors.CorsOptions = {
 };
 
 apolloServer.start().then(() => {
-  app.use(
-    "/graphql",
-    cors(corsOptions),
-    expressMiddleware(apolloServer)
-  );
+  app.use("/graphql", cors(corsOptions), expressMiddleware(apolloServer));
   app.listen(PORT, HOST, () => {
     console.log(`Server is running 🚀 ${HOST}:${PORT}`);
   });
