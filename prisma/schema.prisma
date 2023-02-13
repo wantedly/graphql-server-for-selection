@@ -11,7 +11,32 @@ datasource db {
 }
 
 model Book {
-  id      Int     @id @default(autoincrement())
-  title   String
-  author  String
+  id     Int    @id @default(autoincrement())
+  title  String
+  author String
+}
+
+model Project {
+  id              Int        @id @default(autoincrement())
+  title           String
+  coverImageUrl   String
+  whyDescription  String
+  whatDescription String
+  howDescription  String
+  description     String
+  staffings       Staffing[]
+}
+
+model Staffing {
+  id        Int      @id @default(autoincrement())
+  Project   Project? @relation(fields: [projectId], references: [id])
+  projectId Int?
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int
+}
+
+model User {
+  id       Int        @id @default(autoincrement())
+  name     String
+  Staffing Staffing[]
 }
