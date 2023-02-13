@@ -24,5 +24,8 @@
   },
   "scripts": {
     "dev": "NODE_ENV=development node -r @swc-node/register src/index.ts"
+  },
+  "prisma": {
+    "seed": "node -r @swc-node/register ./prisma/seed.ts"
   }
 }
