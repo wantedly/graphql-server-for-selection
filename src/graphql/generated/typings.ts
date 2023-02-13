@@ -4,7 +4,7 @@
  */
 
 
-
+import type { Context } from "./../../context"
 
 
 
@@ -30,6 +30,7 @@ export interface NexusGenScalars {
 export interface NexusGenObjects {
   Book: { // root type
     author: string; // String!
+    id: number; // Int!
     title: string; // String!
   }
   Query: {};
@@ -48,6 +49,7 @@ export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
 export interface NexusGenFieldTypes {
   Book: { // field return type
     author: string; // String!
+    id: number; // Int!
     title: string; // String!
   }
   Query: { // field return type
@@ -58,6 +60,7 @@ export interface NexusGenFieldTypes {
 export interface NexusGenFieldTypeNames {
   Book: { // field return type name
     author: 'String'
+    id: 'Int'
     title: 'String'
   }
   Query: { // field return type name
@@ -99,7 +102,7 @@ export type NexusGenFeaturesConfig = {
 }
 
 export interface NexusGenTypes {
-  context: any;
+  context: Context;
   inputTypes: NexusGenInputs;
   rootTypes: NexusGenRootTypes;
   inputTypeShapes: NexusGenInputs & NexusGenEnums & NexusGenScalars;

@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import express from "express";
 import morgan from "morgan";
 
+import { Context, createContext } from "./context";
 import { schema } from "./graphql/schema";
 
 dotenv.config();
@@ -12,7 +13,7 @@ dotenv.config();
 const HOST = process.env.HOST || "localhost";
 const PORT = Number(process.env.PORT) || 4000;
 
-const apolloServer = new ApolloServer<{}>({
+const apolloServer = new ApolloServer<Context>({
   schema,
 });
 
@@ -28,7 +29,11 @@ const corsOptions: cors.CorsOptions = {
 };
 
 apolloServer.start().then(() => {
-  app.use("/graphql", cors(corsOptions), expressMiddleware(apolloServer));
+  app.use(
+    "/graphql",
+    cors(corsOptions),
+    expressMiddleware(apolloServer, { context: createContext })
+  );
   app.listen(PORT, HOST, () => {
     console.log(`Server is running 🚀 ${HOST}:${PORT}`);
   });
