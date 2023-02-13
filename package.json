@@ -17,5 +17,8 @@
     "@types/morgan": "^1.9.4",
     "@types/node": "^18.13.0",
     "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development node -r @swc-node/register src/index.ts"
   }
 }
