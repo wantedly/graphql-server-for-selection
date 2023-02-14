@@ -12,40 +12,83 @@ scalar Date
 
 scalar DateTime
 
+"""募集"""
 type Project {
+  """募集トップに表示する画像の URL。"""
   coverImageUrl: String!
+
+  """こんなことをやります、の本文"""
   description: String!
+
+  """雇用形態。"""
   hiringType: String
+
+  """どうやっているのか、の本文"""
   howDescription: String!
   id: Int!
+
+  """募集している職種。"""
   lookingFor: String
+
+  """公開日時"""
   publishedAt: DateTime!
+
+  """募集に紐付けられたメンバーのリスト。"""
   staffings: [Staffing]!
+
+  """募集のタイトル。"""
   title: String!
+
+  """更新日時"""
   updatedAt: DateTime!
+
+  """なにをやっているのか、の本文"""
   whatDescription: String!
+
+  """なぜやっているのか、の本文"""
   whyDescription: String!
 }
 
+"""募集の絞り込みを行うための input 型。"""
 input ProjectFilterInput {
+  """募集タイトルに含まれるべきキーワード。"""
   keyword: String
+
+  """募集職種"""
   lookingFor: String
 }
 
 type Query {
   books: [Book]
-  project(id: Int!): Project
-  projects(filter: ProjectFilterInput): [Project]
+
+  """特定の募集1件を返す query."""
+  project(
+    """募集ID"""
+    id: Int!
+  ): Project
+
+  """募集のリストを返す query"""
+  projects(
+    """募集の絞り込みを行うための引数。タイトルをキーワードで検索したり、職種で絞り込みを行ったりできます。"""
+    filter: ProjectFilterInput
+  ): [Project]
 }
 
+"""募集(Project)とメンバーを紐付ける型。"""
 type Staffing {
   id: Int!
   user: User!
   userId: Int!
 }
 
+"""ユーザー"""
 type User {
+  """アバターのURL"""
   avatar: String
+
+  """ユーザーID"""
   id: Int!
+
+  """名前"""
   name: String!
 }
