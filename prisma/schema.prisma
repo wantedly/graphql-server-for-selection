@@ -26,6 +26,8 @@ model Project {
   whatDescription String
   howDescription  String
   description     String
+  publishedAt     DateTime    @default(now())
+  updatedAt       DateTime    @default(now())
   staffings       Staffing[]
 }
 
