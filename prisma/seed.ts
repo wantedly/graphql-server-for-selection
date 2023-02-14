@@ -51,6 +51,8 @@ const createProjects = async () => {
           whyDescription: projectSeed.whyDescription || faker.lorem.paragraphs(3),
           howDescription: projectSeed.howDescription || faker.lorem.paragraphs(3),
           description: projectSeed.description || faker.lorem.paragraphs(3),
+          publishedAt: projectSeed.publishedAt || new Date(),
+          updatedAt: projectSeed.updatedAt || new Date(),
           staffings: {
             create: ids,
           },
