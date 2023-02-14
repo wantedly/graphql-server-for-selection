@@ -1,3 +1,12 @@
+---
+name: Bug Report
+about: For reporting bug
+title: ''
+labels: ''
+assignees: chloe463
+
+---
+
 ## Summary / 概要
 
 
