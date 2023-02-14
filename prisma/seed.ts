@@ -45,6 +45,8 @@ const createProjects = async () => {
           id: projectSeed.id,
           title: projectSeed.title || faker.lorem.sentence(7),
           coverImageUrl: projectSeed.coverImageUrl || "",
+          lookingFor: projectSeed.lookingFor || null,
+          hiringType: projectSeed.hiringType || null,
           whatDescription: projectSeed.whatDescription || faker.lorem.paragraphs(3),
           whyDescription: projectSeed.whyDescription || faker.lorem.paragraphs(3),
           howDescription: projectSeed.howDescription || faker.lorem.paragraphs(3),

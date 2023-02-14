@@ -7,6 +7,8 @@ export const Project = objectType({
     t.nonNull.int("id");
     t.nonNull.string("title");
     t.nonNull.string("coverImageUrl");
+    t.string("lookingFor");
+    t.string("hiringType");
     t.nonNull.string("whyDescription");
     t.nonNull.string("whatDescription");
     t.nonNull.string("howDescription");
