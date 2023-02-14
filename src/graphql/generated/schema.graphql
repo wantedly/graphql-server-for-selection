@@ -21,10 +21,15 @@ type Project {
   whyDescription: String!
 }
 
+input ProjectFilterInput {
+  keyword: String
+  lookingFor: String
+}
+
 type Query {
   books: [Book]
   project(id: Int!): Project
-  projects: [Project]
+  projects(filter: ProjectFilterInput): [Project]
 }
 
 type Staffing {
