@@ -1,5 +1,7 @@
 import { faker } from "@faker-js/faker";
 import { PrismaClient } from "@prisma/client";
+import rawProjectSeed from "./projects-seed.json";
+
 const prisma = new PrismaClient();
 
 const createBooks = async () => {
@@ -28,7 +30,7 @@ const createUsers = async () => {
 
 const createProjects = async () => {
   return Promise.all(
-    Array.from({ length: 10 }).map(async (_, index) => {
+    Object.values(rawProjectSeed).map(async (projectSeed) => {
       const set = new Set(
         Array.from({ length: 4 }).map(() => {
           return faker.datatype.number({ min: 1, max: 10 });
@@ -40,13 +42,13 @@ const createProjects = async () => {
 
       await prisma.project.create({
         data: {
-          id: index + 1,
-          title: faker.lorem.sentence(7),
-          coverImageUrl: faker.internet.avatar(),
-          whatDescription: faker.lorem.paragraph(),
-          whyDescription: faker.lorem.paragraph(),
-          howDescription: faker.lorem.paragraph(),
-          description: faker.lorem.paragraph(),
+          id: projectSeed.id,
+          title: projectSeed.title || faker.lorem.sentence(7),
+          coverImageUrl: projectSeed.coverImageUrl || "",
+          whatDescription: projectSeed.whatDescription || faker.lorem.paragraphs(3),
+          whyDescription: projectSeed.whyDescription || faker.lorem.paragraphs(3),
+          howDescription: projectSeed.howDescription || faker.lorem.paragraphs(3),
+          description: projectSeed.description || faker.lorem.paragraphs(3),
           staffings: {
             create: ids,
           },
