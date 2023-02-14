@@ -50,6 +50,7 @@ export interface NexusGenObjects {
     userId: number; // Int!
   }
   User: { // root type
+    avatar?: string | null; // String
     id: number; // Int!
     name: string; // String!
   }
@@ -92,6 +93,7 @@ export interface NexusGenFieldTypes {
     userId: number; // Int!
   }
   User: { // field return type
+    avatar: string | null; // String
     id: number; // Int!
     name: string; // String!
   }
@@ -124,6 +126,7 @@ export interface NexusGenFieldTypeNames {
     userId: 'Int'
   }
   User: { // field return type name
+    avatar: 'String'
     id: 'Int'
     name: 'String'
   }
