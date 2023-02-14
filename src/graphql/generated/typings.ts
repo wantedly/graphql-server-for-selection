@@ -36,8 +36,10 @@ export interface NexusGenObjects {
   Project: { // root type
     coverImageUrl: string; // String!
     description: string; // String!
+    hiringType?: string | null; // String
     howDescription: string; // String!
     id: number; // Int!
+    lookingFor?: string | null; // String
     staffings: Array<NexusGenRootTypes['Staffing'] | null>; // [Staffing]!
     title: string; // String!
     whatDescription: string; // String!
@@ -75,8 +77,10 @@ export interface NexusGenFieldTypes {
   Project: { // field return type
     coverImageUrl: string; // String!
     description: string; // String!
+    hiringType: string | null; // String
     howDescription: string; // String!
     id: number; // Int!
+    lookingFor: string | null; // String
     staffings: Array<NexusGenRootTypes['Staffing'] | null>; // [Staffing]!
     title: string; // String!
     whatDescription: string; // String!
@@ -108,8 +112,10 @@ export interface NexusGenFieldTypeNames {
   Project: { // field return type name
     coverImageUrl: 'String'
     description: 'String'
+    hiringType: 'String'
     howDescription: 'String'
     id: 'Int'
+    lookingFor: 'String'
     staffings: 'Staffing'
     title: 'String'
     whatDescription: 'String'

@@ -11,8 +11,10 @@ type Book {
 type Project {
   coverImageUrl: String!
   description: String!
+  hiringType: String
   howDescription: String!
   id: Int!
+  lookingFor: String
   staffings: [Staffing]!
   title: String!
   whatDescription: String!
