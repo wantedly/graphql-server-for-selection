@@ -13,6 +13,8 @@ export const Project = objectType({
     t.nonNull.string("whatDescription");
     t.nonNull.string("howDescription");
     t.nonNull.string("description");
+    t.nonNull.datetime("publishedAt");
+    t.nonNull.datetime("updatedAt");
     t.nonNull.list.field("staffings", {
       type: Staffing,
     });

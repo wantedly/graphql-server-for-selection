@@ -8,6 +8,10 @@ type Book {
   title: String!
 }
 
+scalar Date
+
+scalar DateTime
+
 type Project {
   coverImageUrl: String!
   description: String!
@@ -15,8 +19,10 @@ type Project {
   howDescription: String!
   id: Int!
   lookingFor: String
+  publishedAt: DateTime!
   staffings: [Staffing]!
   title: String!
+  updatedAt: DateTime!
   whatDescription: String!
   whyDescription: String!
 }

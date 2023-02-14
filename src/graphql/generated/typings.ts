@@ -5,8 +5,19 @@
 
 
 import type { Context } from "./../../context"
-
-
+import type { core } from "nexus"
+declare global {
+  interface NexusGenCustomInputMethods<TypeName extends string> {
+    datetime<FieldName extends string>(fieldName: FieldName, opts?: core.CommonInputFieldConfig<TypeName, FieldName>): void // "DateTime";
+    date<FieldName extends string>(fieldName: FieldName, opts?: core.CommonInputFieldConfig<TypeName, FieldName>): void // "Date";
+  }
+}
+declare global {
+  interface NexusGenCustomOutputMethods<TypeName extends string> {
+    datetime<FieldName extends string>(fieldName: FieldName, ...opts: core.ScalarOutSpread<TypeName, FieldName>): void // "DateTime";
+    date<FieldName extends string>(fieldName: FieldName, ...opts: core.ScalarOutSpread<TypeName, FieldName>): void // "Date";
+  }
+}
 
 
 declare global {
@@ -29,6 +40,8 @@ export interface NexusGenScalars {
   Float: number
   Boolean: boolean
   ID: string
+  Date: Date
+  DateTime: Date
 }
 
 export interface NexusGenObjects {
@@ -44,8 +57,10 @@ export interface NexusGenObjects {
     howDescription: string; // String!
     id: number; // Int!
     lookingFor?: string | null; // String
+    publishedAt: NexusGenScalars['DateTime']; // DateTime!
     staffings: Array<NexusGenRootTypes['Staffing'] | null>; // [Staffing]!
     title: string; // String!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
     whatDescription: string; // String!
     whyDescription: string; // String!
   }
@@ -85,8 +100,10 @@ export interface NexusGenFieldTypes {
     howDescription: string; // String!
     id: number; // Int!
     lookingFor: string | null; // String
+    publishedAt: NexusGenScalars['DateTime']; // DateTime!
     staffings: Array<NexusGenRootTypes['Staffing'] | null>; // [Staffing]!
     title: string; // String!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
     whatDescription: string; // String!
     whyDescription: string; // String!
   }
@@ -120,8 +137,10 @@ export interface NexusGenFieldTypeNames {
     howDescription: 'String'
     id: 'Int'
     lookingFor: 'String'
+    publishedAt: 'DateTime'
     staffings: 'Staffing'
     title: 'String'
+    updatedAt: 'DateTime'
     whatDescription: 'String'
     whyDescription: 'String'
   }
