@@ -21,7 +21,7 @@ yarn dev
 
 ### Playground
 
-ブラウザで http://localhost:4000 にアクセスすると GraphQL の playground が開きます。このページで定義されている type や query の確認ができます。また中央のペインで query を呼び出すことができます。Query のテストやデバッグに活用ください。
+ブラウザで http://localhost:4000/graphql にアクセスすると GraphQL の playground が開きます。このページで定義されている type や query の確認ができます。また中央のペインで query を呼び出すことができます。Query のテストやデバッグに活用ください。
 
 ![playground](/docs/images/graphql-playground.png)
 
