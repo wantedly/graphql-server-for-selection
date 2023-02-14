@@ -32,6 +32,7 @@ type Staffing {
 }
 
 type User {
+  avatar: String
   id: Int!
   name: String!
 }
