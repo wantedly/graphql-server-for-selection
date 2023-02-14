@@ -36,3 +36,10 @@ yarn dev
 `yarn prisma studio` を実行すると http://localhost:5555 に Prisma studio というアプリケーションが立ち上がります。ここで db (sqlite) 内にあるデータの確認ができます。中にどんなデータが入っているかを確認するために活用ください。
 
 ![prisma-studio](/docs/images/prisma-studio.png)
+
+## その他
+
+- Q. 定義されている型情報はどこで確認できますか？
+- A. `src/graphq/generated/schema.graphql` で GraphQL のスキーマを確認できます。または playground の左ペインの "Documentation" で確認することができます。
+- Q. うまく動かないのですが…
+- A. 弊社の採用担当者にメッセージでその旨を伝えてください。またはこのリポジトリに issue を作成して、状況を報告してください。なるべく速く対応します。
