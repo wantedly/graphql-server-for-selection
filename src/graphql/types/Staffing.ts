@@ -1,14 +1,12 @@
 import { objectType } from "nexus";
-import { User } from "./User";
+import { Staffing as PrismaStaffing } from "nexus-prisma";
 
 export const Staffing = objectType({
-  name: "Staffing",
-  description: "募集(Project)とメンバーを紐付ける型。",
+  name: PrismaStaffing.$name,
+  description: PrismaStaffing.$description,
   definition(t) {
-    t.nonNull.int("id");
-    t.nonNull.int("userId");
-    t.nonNull.field("user", {
-      type: User,
-    });
+    t.field(PrismaStaffing.id);
+    t.field(PrismaStaffing.userId);
+    t.field(PrismaStaffing.user);
   },
 });

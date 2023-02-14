@@ -5,6 +5,10 @@ generator client {
   provider = "prisma-client-js"
 }
 
+generator nexusPrisma {
+  provider = "nexus-prisma"
+}
+
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
@@ -16,32 +20,41 @@ model Book {
   author String
 }
 
+/// 募集
 model Project {
-  id              Int        @id @default(autoincrement())
-  title           String
-  coverImageUrl   String
-  lookingFor      String?
-  hiringType      String?
-  whyDescription  String
-  whatDescription String
-  howDescription  String
-  description     String
-  publishedAt     DateTime    @default(now())
-  updatedAt       DateTime    @default(now())
-  staffings       Staffing[]
+  id              Int        @id @default(autoincrement()) /// 募集ID
+  title           String /// 募集のタイトル。
+  coverImageUrl   String /// 募集トップに表示する画像の URL。
+  lookingFor      String? /// 募集している職種。
+  hiringType      String? /// 雇用形態。
+  whyDescription  String /// なぜやっているのか、の本文
+  whatDescription String /// なにをやっているのか、の本文
+  howDescription  String /// どうやっているのか、の本文
+  description     String /// こんなことをやります、の本文
+  publishedAt     DateTime   @default(now()) /// 公開日時
+  updatedAt       DateTime   @default(now()) /// 更新日時
+  staffings       Staffing[] /// 募集に紐付けられたメンバーのリスト。
 }
 
+/// 募集(Project)とメンバーを紐付ける型。
 model Staffing {
+  /// Staffing id
   id        Int      @id @default(autoincrement())
+  /// 募集
   Project   Project? @relation(fields: [projectId], references: [id])
+  /// 募集ID
   projectId Int?
+  /// ユーザー
   user      User     @relation(fields: [userId], references: [id])
+  /// ユーザーID
   userId    Int
 }
 
+/// ユーザー型
 model User {
+  /// ユーザーID
   id       Int        @id @default(autoincrement())
-  name     String
-  avatar   String
+  name     String /// 名前
+  avatar   String? /// アバターのURL
   Staffing Staffing[]
 }

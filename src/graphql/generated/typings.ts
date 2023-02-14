@@ -58,7 +58,6 @@ export interface NexusGenObjects {
     id: number; // Int!
     lookingFor?: string | null; // String
     publishedAt: NexusGenScalars['DateTime']; // DateTime!
-    staffings: Array<NexusGenRootTypes['Staffing'] | null>; // [Staffing]!
     title: string; // String!
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
     whatDescription: string; // String!
@@ -67,7 +66,6 @@ export interface NexusGenObjects {
   Query: {};
   Staffing: { // root type
     id: number; // Int!
-    user: NexusGenRootTypes['User']; // User!
     userId: number; // Int!
   }
   User: { // root type
@@ -101,7 +99,7 @@ export interface NexusGenFieldTypes {
     id: number; // Int!
     lookingFor: string | null; // String
     publishedAt: NexusGenScalars['DateTime']; // DateTime!
-    staffings: Array<NexusGenRootTypes['Staffing'] | null>; // [Staffing]!
+    staffings: NexusGenRootTypes['Staffing'][]; // [Staffing!]!
     title: string; // String!
     updatedAt: NexusGenScalars['DateTime']; // DateTime!
     whatDescription: string; // String!

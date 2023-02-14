@@ -1,10 +1,11 @@
+import { Book as PrismaBook } from "nexus-prisma";
 import { objectType } from "nexus";
 
 export const Book = objectType({
-  name: "Book",
+  name: PrismaBook.$name,
   definition(t) {
-    t.nonNull.int("id");
-    t.nonNull.string("title");
-    t.nonNull.string("author");
+    t.field(PrismaBook.id);
+    t.field(PrismaBook.title);
+    t.field(PrismaBook.author);
   },
 });
