@@ -14,6 +14,10 @@ declare global {
 }
 
 export interface NexusGenInputs {
+  ProjectFilterInput: { // input type
+    keyword?: string | null; // String
+    lookingFor?: string | null; // String
+  }
 }
 
 export interface NexusGenEnums {
@@ -143,6 +147,9 @@ export interface NexusGenArgTypes {
     project: { // args
       id: number; // Int!
     }
+    projects: { // args
+      filter?: NexusGenInputs['ProjectFilterInput'] | null; // ProjectFilterInput
+    }
   }
 }
 
@@ -154,7 +161,7 @@ export interface NexusGenTypeInterfaces {
 
 export type NexusGenObjectNames = keyof NexusGenObjects;
 
-export type NexusGenInputNames = never;
+export type NexusGenInputNames = keyof NexusGenInputs;
 
 export type NexusGenEnumNames = never;
 
