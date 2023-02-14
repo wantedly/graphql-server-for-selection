@@ -20,6 +20,8 @@ model Project {
   id              Int        @id @default(autoincrement())
   title           String
   coverImageUrl   String
+  lookingFor      String?
+  hiringType      String?
   whyDescription  String
   whatDescription String
   howDescription  String
