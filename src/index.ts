@@ -35,6 +35,10 @@ apolloServer.start().then(() => {
     expressMiddleware(apolloServer, { context: createContext })
   );
   app.listen(PORT, HOST, () => {
+    // eslint-disable-next-line no-console
     console.log(`Server is running 🚀 ${HOST}:${PORT}/graphql`);
   });
+}).catch((e) => {
+  // eslint-disable-next-line no-console
+  console.error(e);
 });

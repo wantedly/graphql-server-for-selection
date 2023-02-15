@@ -4,8 +4,8 @@
  */
 
 
-import type { Context } from "./../../context"
-import type { core } from "nexus"
+import type { Context } from "./../../context";
+import type { core } from "nexus";
 declare global {
   interface NexusGenCustomInputMethods<TypeName extends string> {
     datetime<FieldName extends string>(fieldName: FieldName, opts?: core.CommonInputFieldConfig<TypeName, FieldName>): void // "DateTime";
@@ -21,7 +21,7 @@ declare global {
 
 
 declare global {
-  interface NexusGen extends NexusGenTypes {}
+  type NexusGen = NexusGenTypes;
 }
 
 export interface NexusGenInputs {
@@ -81,9 +81,9 @@ export interface NexusGenInterfaces {
 export interface NexusGenUnions {
 }
 
-export type NexusGenRootTypes = NexusGenObjects
+export type NexusGenRootTypes = NexusGenObjects;
 
-export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars
+export type NexusGenAllTypes = NexusGenRootTypes & NexusGenScalars;
 
 export interface NexusGenFieldTypes {
   Book: { // field return type
@@ -198,7 +198,7 @@ export type NexusGenFeaturesConfig = {
     resolveType: true
     __typename: false
   }
-}
+};
 
 export interface NexusGenTypes {
   context: Context;

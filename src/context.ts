@@ -17,6 +17,7 @@ export const createContext: ExpressMiddlewareOptions<Context>["context"] =
         },
       ],
     });
+    // eslint-disable-next-line no-console
     prisma.$on("query", console.log);
     return {
       prisma,
