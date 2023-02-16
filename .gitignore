@@ -149,3 +149,6 @@ dist
 .yarn/cache
 .yarn/install-state.gz
 !.yarn/releases/*
+
+temp
+tmp
