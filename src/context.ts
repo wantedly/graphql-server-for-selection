@@ -1,21 +1,24 @@
-import { PrismaClient } from "@prisma/client";
 import { ExpressMiddlewareOptions } from "@apollo/server/express4";
+import { PrismaClient } from "@prisma/client";
 
 export type Context = {
-  prismaClient: PrismaClient,
+  // NOTE: To handle relationship between models properly, we need to name prisma client instance 'prisma'.
+  // cf. https://graphql-nexus.github.io/nexus-prisma/docs/features#project-relations
+  prisma: PrismaClient;
 };
 
-export const createContext: ExpressMiddlewareOptions<Context>["context"] = async () => {
-  const prismaClient = new PrismaClient({
-    log: [
-      {
-          level: 'query',
-          emit: 'event',
-      },
-    ]
-  });
-  prismaClient.$on("query", console.log);
-  return {
-    prismaClient,
+export const createContext: ExpressMiddlewareOptions<Context>["context"] =
+  async () => {
+    const prisma = new PrismaClient({
+      log: [
+        {
+          level: "query",
+          emit: "event",
+        },
+      ],
+    });
+    prisma.$on("query", console.log);
+    return {
+      prisma,
+    };
   };
-};

@@ -7,11 +7,12 @@ export const projects = queryField("projects", {
   args: {
     filter: arg({
       type: ProjectFilterInput,
-      description: "募集の絞り込みを行うための引数。タイトルをキーワードで検索したり、職種で絞り込みを行ったりできます。",
+      description:
+        "募集の絞り込みを行うための引数。タイトルをキーワードで検索したり、職種で絞り込みを行ったりできます。",
     }),
   },
-  resolve: async (_root, args, { prismaClient }) => {
-    const projects = await prismaClient.project.findMany({
+  resolve: async (_root, args, { prisma }) => {
+    const projects = await prisma.project.findMany({
       where: {
         title: {
           contains: args?.filter?.keyword || "",

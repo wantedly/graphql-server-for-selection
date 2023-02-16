@@ -25,6 +25,8 @@ type Project {
 
   """どうやっているのか、の本文"""
   howDescription: String!
+
+  """募集ID"""
   id: Int!
 
   """募集している職種。"""
@@ -34,7 +36,7 @@ type Project {
   publishedAt: DateTime!
 
   """募集に紐付けられたメンバーのリスト。"""
-  staffings: [Staffing]!
+  staffings: [Staffing!]!
 
   """募集のタイトル。"""
   title: String!
@@ -76,12 +78,17 @@ type Query {
 
 """募集(Project)とメンバーを紐付ける型。"""
 type Staffing {
+  """Staffing id"""
   id: Int!
+
+  """ユーザー"""
   user: User!
+
+  """ユーザーID"""
   userId: Int!
 }
 
-"""ユーザー"""
+"""ユーザー型"""
 type User {
   """アバターのURL"""
   avatar: String

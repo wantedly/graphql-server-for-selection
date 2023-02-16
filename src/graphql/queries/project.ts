@@ -6,9 +6,9 @@ export const project = queryField("project", {
   args: {
     id: nonNull(intArg({ description: "募集ID" })),
   },
-  resolve: async (_root, args, { prismaClient }) => {
+  resolve: async (_root, args, { prisma }) => {
     const { id } = args;
-    const project = prismaClient.project.findUnique({
+    const project = prisma.project.findUnique({
       where: { id },
       include: { staffings: { include: { user: true } } },
     });

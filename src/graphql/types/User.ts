@@ -1,11 +1,12 @@
 import { objectType } from "nexus";
+import { User as PrismaUser } from "nexus-prisma";
 
 export const User = objectType({
-  name: "User",
-  description: "ユーザー",
+  name: PrismaUser.$name,
+  description: PrismaUser.$description,
   definition(t) {
-    t.nonNull.int("id", { description: "ユーザーID" });
-    t.nonNull.string("name", { description: "名前" });
-    t.string("avatar", { description: "アバターのURL" });
+    t.field(PrismaUser.id);
+    t.field(PrismaUser.name);
+    t.field(PrismaUser.avatar);
   },
 });
