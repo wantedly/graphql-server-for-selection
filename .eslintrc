@@ -1,0 +1,17 @@
+{
+  "extends": "wantedly-typescript/without-react",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["wantedly"],
+  "rules": {
+    "use-macros/graphql-tag": ["off"],
+    "wantedly/nexus-camel-case-field-name": ["error", { "autofix": true }],
+    "wantedly/nexus-enum-values-description": ["error"],
+    "wantedly/nexus-field-description": ["off"],
+    "wantedly/nexus-pascal-case-type-name": ["error", { "autofix": true }],
+    "wantedly/nexus-type-description": ["error"],
+    "wantedly/nexus-upper-case-enum-members": ["error", { "autofix": true }]
+  },
+  "ignorePatterns": ["src/graphql/generated/*.ts"]
+}
