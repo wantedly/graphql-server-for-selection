@@ -24,14 +24,11 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/ping", function (_, res) {
   res.send("pong");
 });
-const corsOptions: cors.CorsOptions = {
-  origin: "http://localhost:*",
-};
 
 apolloServer.start().then(() => {
   app.use(
     "/graphql",
-    cors(corsOptions),
+    cors(),
     expressMiddleware(apolloServer, { context: createContext })
   );
   app.listen(PORT, HOST, () => {
