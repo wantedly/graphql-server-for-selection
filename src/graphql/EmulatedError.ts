@@ -7,8 +7,7 @@ export function shouldEmulateError() {
 export class EmulatedError extends Error {
   constructor() {
     super(
-      `This is error is emulated one and occurring at certain rate (${
-        ERROR_RATIO * 100
+      `This error is emulated and occurring at certain rate (${ERROR_RATIO * 100
       }%). Please handle this properly.`
     );
   }
