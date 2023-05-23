@@ -36,7 +36,7 @@ export interface NexusGenInputs {
     deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     finishedAt?: NexusGenScalars['DateTime'] | null; // DateTime
     id: number; // Int!
-    title: string; // String!
+    title?: string | null; // String
   }
 }
 

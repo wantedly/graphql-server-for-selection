@@ -115,7 +115,7 @@ input UpdateTodoInput {
   deletedAt: DateTime
   finishedAt: DateTime
   id: Int!
-  title: String!
+  title: String
 }
 
 type UpdateTodoPayload {

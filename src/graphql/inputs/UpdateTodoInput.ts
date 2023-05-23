@@ -5,7 +5,11 @@ export const UpdateTodoInput = inputObjectType({
   name: "UpdateTodoInput",
   definition(t) {
     t.field(PrismaTodo.id);
-    t.field(PrismaTodo.title);
+    t.nullable.field({
+      name: PrismaTodo.title.name,
+      type: "String",
+      description: PrismaTodo.title.description,
+    });
     t.field(PrismaTodo.finishedAt);
     t.field(PrismaTodo.deletedAt);
   },
