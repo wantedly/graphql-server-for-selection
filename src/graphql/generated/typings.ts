@@ -25,9 +25,18 @@ declare global {
 }
 
 export interface NexusGenInputs {
+  CreateTodoInput: { // input type
+    title: string; // String!
+  }
   ProjectFilterInput: { // input type
     keyword?: string | null; // String
     lookingFor?: string | null; // String
+  }
+  UpdateTodoInput: { // input type
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    finishedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    id: number; // Int!
+    title?: string | null; // String
   }
 }
 
@@ -50,6 +59,10 @@ export interface NexusGenObjects {
     id: number; // Int!
     title: string; // String!
   }
+  CreateTodoPayload: { // root type
+    todo?: NexusGenRootTypes['Todo'] | null; // Todo
+  }
+  Mutation: {};
   Project: { // root type
     coverImageUrl: string; // String!
     description: string; // String!
@@ -67,6 +80,17 @@ export interface NexusGenObjects {
   Staffing: { // root type
     id: number; // Int!
     userId: number; // Int!
+  }
+  Todo: { // root type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    deletedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    finishedAt?: NexusGenScalars['DateTime'] | null; // DateTime
+    id: number; // Int!
+    title: string; // String!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+  }
+  UpdateTodoPayload: { // root type
+    todo?: NexusGenRootTypes['Todo'] | null; // Todo
   }
   User: { // root type
     avatar?: string | null; // String
@@ -91,6 +115,13 @@ export interface NexusGenFieldTypes {
     id: number; // Int!
     title: string; // String!
   }
+  CreateTodoPayload: { // field return type
+    todo: NexusGenRootTypes['Todo'] | null; // Todo
+  }
+  Mutation: { // field return type
+    createTodo: NexusGenRootTypes['CreateTodoPayload'] | null; // CreateTodoPayload
+    updateTodo: NexusGenRootTypes['UpdateTodoPayload'] | null; // UpdateTodoPayload
+  }
   Project: { // field return type
     coverImageUrl: string; // String!
     description: string; // String!
@@ -109,11 +140,23 @@ export interface NexusGenFieldTypes {
     books: Array<NexusGenRootTypes['Book'] | null> | null; // [Book]
     project: NexusGenRootTypes['Project'] | null; // Project
     projects: Array<NexusGenRootTypes['Project'] | null> | null; // [Project]
+    todos: Array<NexusGenRootTypes['Todo'] | null> | null; // [Todo]
   }
   Staffing: { // field return type
     id: number; // Int!
     user: NexusGenRootTypes['User']; // User!
     userId: number; // Int!
+  }
+  Todo: { // field return type
+    createdAt: NexusGenScalars['DateTime']; // DateTime!
+    deletedAt: NexusGenScalars['DateTime'] | null; // DateTime
+    finishedAt: NexusGenScalars['DateTime'] | null; // DateTime
+    id: number; // Int!
+    title: string; // String!
+    updatedAt: NexusGenScalars['DateTime']; // DateTime!
+  }
+  UpdateTodoPayload: { // field return type
+    todo: NexusGenRootTypes['Todo'] | null; // Todo
   }
   User: { // field return type
     avatar: string | null; // String
@@ -127,6 +170,13 @@ export interface NexusGenFieldTypeNames {
     author: 'String'
     id: 'Int'
     title: 'String'
+  }
+  CreateTodoPayload: { // field return type name
+    todo: 'Todo'
+  }
+  Mutation: { // field return type name
+    createTodo: 'CreateTodoPayload'
+    updateTodo: 'UpdateTodoPayload'
   }
   Project: { // field return type name
     coverImageUrl: 'String'
@@ -146,11 +196,23 @@ export interface NexusGenFieldTypeNames {
     books: 'Book'
     project: 'Project'
     projects: 'Project'
+    todos: 'Todo'
   }
   Staffing: { // field return type name
     id: 'Int'
     user: 'User'
     userId: 'Int'
+  }
+  Todo: { // field return type name
+    createdAt: 'DateTime'
+    deletedAt: 'DateTime'
+    finishedAt: 'DateTime'
+    id: 'Int'
+    title: 'String'
+    updatedAt: 'DateTime'
+  }
+  UpdateTodoPayload: { // field return type name
+    todo: 'Todo'
   }
   User: { // field return type name
     avatar: 'String'
@@ -160,6 +222,14 @@ export interface NexusGenFieldTypeNames {
 }
 
 export interface NexusGenArgTypes {
+  Mutation: {
+    createTodo: { // args
+      todo?: NexusGenInputs['CreateTodoInput'] | null; // CreateTodoInput
+    }
+    updateTodo: { // args
+      todo?: NexusGenInputs['UpdateTodoInput'] | null; // UpdateTodoInput
+    }
+  }
   Query: {
     project: { // args
       id: number; // Int!
