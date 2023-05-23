@@ -15,6 +15,16 @@ const createBooks = async () => {
   });
 };
 
+const createTodos = async () => {
+  Array.from({ length: 5 }).forEach(async () => {
+    await prisma.todo.create({
+      data: {
+        title: faker.lorem.words(),
+      },
+    });
+  });
+};
+
 const createUsers = async () => {
   return await Promise.all(
     Array.from({ length: 10 }).map(async () => {
@@ -64,6 +74,7 @@ const createProjects = async () => {
 
 async function main() {
   await createBooks();
+  await createTodos();
   await createUsers();
   await createProjects();
 }
